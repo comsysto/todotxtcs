@@ -10,6 +10,9 @@
     "Other"
   ],
   "publisher": "de.comsystoreply",
+  "repository": {
+    "url": "https://github.com/comsysto/todotxtcs"
+  },
   "activationEvents": [
     "onLanguage:plaintext"
   ],
