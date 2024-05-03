@@ -1,9 +1,21 @@
-# todotxt README
+export default class AppConstants {
+    public static readonly ACCEPTED_FILENAMES = [
+        'todo.txt',
+        'done.txt'
+    ]
 
-Support for todo.txt format with code completion and auto-timestamping.
-
-A full example of a todo item looks like this.
-(B) 2024-05-02 Lorem ipsum dolor sit amet, consetetur sadipscing elitr +bar +blub @foo @maier 
+    public static ARCHIVE_FILENAME = 'done.txt';
+    public static TODO_FILENAME = 'todo.txt';
+    
+    public static DONE_REGEX = new RegExp(/^x/g);
+    public static DATE_REGEX = new RegExp(/\d{4}-\d{2}-\d{2}/g);
+    public static PROJECT_REGEX = new RegExp(/\B\+\w+/g);
+    public static CONTEXT_REGEX = new RegExp(/\B\@\w+/g);
+    public static PRIORITY_REGEX = new RegExp(/[(][A-Z][)]/g);
+    public static DUE_REGEX = new RegExp(/due\s*:\d{4}-\d{2}-\d{2}/g);
+    public static README =
+`A full example of a todo item looks like this.
+(B) 2024-05-03 2024-05-02 Lorem ipsum dolor sit amet, consetetur sadipscing elitr +bar +blub @foo @maier 
 
 And here is the same item, marked as done.
 x (B) 2024-05-02 Lorem ipsum dolor sit amet, consetetur sadipscing elitr +bar +blub @foo @maier 
@@ -18,7 +30,7 @@ The general format of Todo.txt is like this, with [<>] being optional tokens.
 [<completion>] [<priority>] [<completion_date>] [<creation_date>] <description> [<project_tags>] [<context_tags>] [<special_key_value_tags>]
 So in general only the <description> is obligatory.
 
-# How to use
+HOW TO USE THIS EXTENSION
 1. Navigate to a new line.
 2. If you want to create a priority or a timestamp, bring up IntelliSense and choose from (A) to (D) or the current date.
 Note that you can have 2 dates. By todo.txt convention, the left is the completion and the right the creation date.
@@ -31,22 +43,8 @@ Note that you can have 2 dates. By todo.txt convention, the left is the completi
 And you guessed it: there is IntellySense for 'x '
 x (B) 2024-05-03 my todo +projectA @ContextZ
 
-## Features
 
-Syntax Highlighting
-\!\[syntax highlighting\]\(assets/images/syntax_highlighting.png\)
-
-IntelliSense
-\!\[intelli sense 1\]\(assets/images/intelli_sense_01.png\)
-\!\[intelli sense 2\]\(assets/images/intelli_sense_02.png\)
-
-Timestamps
-\!\[timestamps\]\(assets/images/timestamp.png\)
-
-## Release Notes
-
-### 0.0.1
-
-Initial release of the extension as .vsix file
-
-**⊂(◉‿◉)つ**
+My Todos
+(A) 2024-05-03 give feedback to Benj ⊂(◉‿◉)つ +todo_txt @cs_internal
+`;
+}
